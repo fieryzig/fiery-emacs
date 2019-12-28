@@ -6,6 +6,8 @@
 
 (require 'init-package)
 
+(use-package all-the-icons
+  :ensure t)
 (require 'init-ivy)
 
 (use-package company
