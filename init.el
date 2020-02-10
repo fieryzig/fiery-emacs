@@ -2,6 +2,7 @@
 (load "init-gc.el")
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+(scroll-bar-mode -1)
 
 (require 'init-package)
 (require 'init-basic)
