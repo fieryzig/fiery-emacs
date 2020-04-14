@@ -1,6 +1,19 @@
 (use-package all-the-icons
   :ensure t)
 
+(use-package windmove
+  :ensure nil
+  :hook (after-init . windmove-default-keybindings))
+
+(use-package which-key
+  :diminish
+  :hook (after-init . which-key-mode))
+
+(use-package persistent-scratch
+  :diminish
+  :hook ((after-init . persistent-scratch-autosave-mode)
+	 (lisp-interaction-mode . persistent-scratch-mode)))
+
 (use-package company
   :ensure t
   :diminish company-mode
@@ -34,7 +47,7 @@
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
   (setq doom-themes-enable-bold t
 	doom-themes-enable-italic t)
-  (load-theme 'doom-molokai t)
+  (load-theme 'doom-outrun-electric t)
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
