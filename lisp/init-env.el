@@ -1,5 +1,9 @@
 ;;; init-env.el --- -*- lexical-binding: t -*-
 
+;; edit emacs config for short
+(defun edit-configs()
+  (interactive)
+  (find-file (concat user-emacs-directory "init.el")))
 ;; use-package
 (setq package-archives
       '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
@@ -49,9 +53,38 @@
 (setq-default history-length 500)
 
 
-;;
+;; font & icons
+(shell-command
+ (concat "powershell.exe "
+	 "../scripts/font_install.ps1 "
+	 "../fonts"))
 (use-package all-the-icons)
-
+(use-package cnfonts
+  :after all-the-icons
+  :hook (cnfonts-set-font-finish
+	 . (lambda (fontsizes-list)
+	     (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
+	     (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
+	     (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
+	     (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
+	     (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
+	     (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)))
+  :init
+  (cnfonts-enable)
+  (set-face-attribute
+   'default nil
+   :font (font-spec :name "-outline-Consolas-bold-italic-normal-mono-*-*-*-*-c-*-iso10646-1"
+                    :weight 'normal
+                    :slant 'normal
+                    :size 11.5))
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font
+     (frame-parameter nil 'font)
+     charset
+     (font-spec :name "-outline-微软雅黑-normal-normal-normal-sans-*-*-*-*-p-*-iso10646-1"
+		:weight 'normal
+		:slant 'normal
+		:size 13.5))))
 
 
 (provide 'init-env)
