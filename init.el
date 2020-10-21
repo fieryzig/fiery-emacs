@@ -1,15 +1,25 @@
-(add-to-list 'load-path "~/.emacs.d/lisp")
-(load "init-gc.el")
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-(setq make-backup-files nil)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+;;; init.el --- -*- lexical-binding: t -*-
 
-(require 'init-package)
-(require 'init-code)
-(require 'init-lsp)
+(cond ((version< emacs-version "26.1")
+       (warn "Emacs 26.1 or above is required!")))
+
+;; LoadPath
+(defun update-to-load-path (folder)
+  "Update FOLDER and its subdirectories to `load-path'."
+  (let ((base folder))
+    (unless (member base load-path)
+      (add-to-list 'load-path base))
+    (dolist (f (directory-files base))
+      (let ((name (concat base "/" f)))
+        (when (and (file-directory-p name)
+                   (not (equal f ".."))
+                   (not (equal f ".")))
+          (unless (member base load-path)
+            (add-to-list 'load-path name)))))))
+
+(update-to-load-path (expand-file-name "lisp" user-emacs-directory))
+;; -LoadPath
+
+(require 'init-const)
+(require 'init-env)
 (require 'init-basic)
-(require 'init-ivy)
-(put 'dired-find-alternate-file 'disabled nil)
