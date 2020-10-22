@@ -20,6 +20,18 @@
 (update-to-load-path (expand-file-name "lisp" user-emacs-directory))
 ;; -LoadPath
 
+;; Basic configs(edit, ui, etc.)
 (require 'init-const)
 (require 'init-env)
 (require 'init-basic)
+
+;; Code
+(require 'init-code)
+(require 'init-python)
+(require 'init-cpp)
+
+;; Org
+
+;; Misc
+
+;; Custom
