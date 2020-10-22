@@ -1,5 +1,5 @@
 # fiery-emacs
----
+
 **fiery-emacs** is a simple Emacs configure.
 
 ## Install
