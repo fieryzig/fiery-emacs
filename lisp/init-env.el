@@ -54,10 +54,6 @@
 
 
 ;; font & icons
-(shell-command
- (concat "powershell.exe "
-	 "../scripts/font_install.ps1 "
-	 "../fonts"))
 (use-package all-the-icons)
 (use-package cnfonts
   :after all-the-icons
