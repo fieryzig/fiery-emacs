@@ -4,11 +4,13 @@
 (use-package counsel
   :diminish ivy-mode counsel-mode
   :bind
-  (("C-s" . swiper-isearch)
-   ("C-r" . swiper-isearch-backward))
+  (("\C-s" . swiper)
+   ("M-x" . counsel-M-x)
+   ("C-x C-f" . counsel-find-file))
   :hook
   ((after-init . ivy-mode)(ivy-mode . counsel-mode))
   :custom
+  (search-default-mode #'char-fold-to-regexp)
   (enable-recursive-minibuffers t)
   (ivy-use-virtual-buffers t)
   (ivy-use-selectable-prompt t)
