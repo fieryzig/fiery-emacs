@@ -31,7 +31,7 @@
 (require 'init-cpp)
 
 ;; Org
-
+(require 'init-org)
 ;; Misc
 
 ;; Custom
