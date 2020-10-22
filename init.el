@@ -29,6 +29,7 @@
 (require 'init-code)
 (require 'init-python)
 (require 'init-cpp)
+(require 'init-markdown)
 
 ;; Org
 (require 'init-org)
