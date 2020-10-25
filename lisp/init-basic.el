@@ -69,14 +69,23 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-items '((recents . 5)
-			  (bookmarks . 5)
-			  (agenda . 5)))
+  (setq dashboard-items '((projects . 5)
+			  (agenda . 5)
+			  (recents . 5)))
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
-  (dashboard-modify-heading-icons '((recents . "file-text")
-				    (bookmarks . "book")))
-  (setq dashboard-set-navigator t))
+  (dashboard-modify-heading-icons
+   '((recents . "file-text")
+	 (bookmarks . "book")))
+  (setq dashboard-set-navigator t)
+  (setq dashboard-navigator-buttons
+        `(;; row 1
+          ((,(all-the-icons-material "settings" :height 1.1 :v-adjust 0.0)
+            "Settings"
+            "Edit init.el"
+            (lambda (&rest _) (edit-configs))))))
+  (setq dashboard-footer-messages
+        '("fiery-emacs")))
 
 (use-package doom-themes
   :ensure t
