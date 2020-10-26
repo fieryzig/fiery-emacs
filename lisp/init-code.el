@@ -10,6 +10,19 @@
   (setq company-begin-commands '(self-insert-command))
   :hook (prog-mode . company-mode))
 
+;; quickrun
+(use-package quickrun
+  :custom
+  (quickrun-add-command
+   "c++/c1z"
+   '((:command . "g++")
+     (:exec . ("%c -std=c++1z %o -o %e %s"
+               "%e %a"))
+     (:remove . ("%e")))
+   :default "c++")
+  :bind
+  ("C-c r" . quickrun-shell))
+
 ;; LSP
 ;; No! I don't use lsp
 
@@ -102,6 +115,8 @@
   :diminish
   ;; Enable manually if needed, it a severe bug which potentially core-dumps Emacs
   ;; https://github.com/DarthFennec/highlight-indent-guides/issues/76
+  :hook
+  (prog-mode . highlight-indent-guides-mode)
   :commands (highlight-indent-guides-mode)
   :custom
   (highlight-indent-guides-method 'character)
