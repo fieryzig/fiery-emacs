@@ -2,7 +2,10 @@
   :ensure nil
   :bind
   ("C-c a" . org-agenda)
+  ("C-c l" . org-store-link)
+  ("C-c c" . org-capture)
   :config
+  (setq org-agenda-files `(,fiery-org-files))
   ;; UI
   (unless (eq system-type 'windows-nt)
     (use-package org-bullets
