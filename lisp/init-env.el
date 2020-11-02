@@ -1,9 +1,5 @@
 ;;; init-env.el --- -*- lexical-binding: t -*-
 
-;; edit emacs config for short
-(defun edit-configs()
-  (interactive)
-  (find-file (concat user-emacs-directory "init.el")))
 ;; use-package
 (setq package-archives
       '(("gnu"   . "http://elpa.emacs-china.org/gnu/")

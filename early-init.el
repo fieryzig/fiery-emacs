@@ -8,5 +8,9 @@
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
 
+;; edit emacs config for short
+(defun edit-configs()
+  (interactive)
+  (find-file (concat user-emacs-directory "init.el")))
 
 (provide 'early-init)
