@@ -62,21 +62,6 @@
 	     (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
 	     (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)))
   :init
-  (cnfonts-enable)
-  (set-face-attribute
-   'default nil
-   :font (font-spec :name "-outline-Consolas-bold-italic-normal-mono-*-*-*-*-c-*-iso10646-1"
-                    :weight 'normal
-                    :slant 'normal
-                    :size 11.5))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font
-     (frame-parameter nil 'font)
-     charset
-     (font-spec :name "-outline-微软雅黑-normal-normal-normal-sans-*-*-*-*-p-*-iso10646-1"
-		:weight 'normal
-		:slant 'normal
-		:size 13.5))))
-
+  (cnfonts-enable))
 
 (provide 'init-env)
