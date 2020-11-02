@@ -8,6 +8,10 @@
   (setq company-idle-delay .3)
   (setq company-echo-delay 0)
   (setq company-begin-commands '(self-insert-command))
+  :bind
+  ((:map company-active-map
+         ("C-n" . company-select-next-or-abort)
+         ("C-p" . company-select-previous-or-abort)))
   :hook (prog-mode . company-mode))
 
 ;; quickrun
