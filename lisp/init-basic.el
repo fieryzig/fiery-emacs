@@ -69,11 +69,13 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-items '((projects . 5)
-			  (agenda . 5)
-			  (recents . 5)))
+  (setq dashboard-startup-banner 'logo)
+  (setq dashboard-items '((agenda . 5)
+                          (projects . 5)
+			              (recents . 5)))
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
+  (setq dashboard-center-content t)
   (dashboard-modify-heading-icons
    '((recents . "file-text")
 	 (bookmarks . "book")))
