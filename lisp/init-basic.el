@@ -85,7 +85,7 @@
           ((,(all-the-icons-material "settings" :height 1.1 :v-adjust 0.0)
             "Settings"
             "Edit init.el"
-            (lambda (&rest _) (edit-configs))))))
+            (lambda (&rest _) (projectile-switch-project-by-name user-emacs-directory))))))
   (setq dashboard-footer-messages
         '("fiery-emacs")))
 
