@@ -19,8 +19,8 @@
   :group 'fiery
   :type 'string)
 
-(defcustom fiery-org-files (expand-file-name "~/org/")
-  "user-org-files"
+(defcustom fiery-org-directory (expand-file-name "~/org/")
+  "user-org-root"
   :group 'fiery
   :type 'string)
 
