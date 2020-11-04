@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (defconst fiery-org-todo-file
   (expand-file-name "todo.org" fiery-org-directory))
 
