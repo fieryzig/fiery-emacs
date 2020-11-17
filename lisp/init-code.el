@@ -16,7 +16,7 @@
 
 ;; quickrun
 (use-package quickrun
-  :custom
+  :init
   (quickrun-add-command
    "c++/c1z"
    '((:command . "g++")
@@ -24,6 +24,7 @@
                "%e %a"))
      (:remove . ("%e")))
    :default "c++")
+  (setq quickrun-focus-p nil)
   :bind
   ("C-c r" . quickrun-shell))
 
