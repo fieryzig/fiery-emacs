@@ -23,6 +23,8 @@
   ("C-c c" . org-capture)
   (:map org-mode-map
         ("C-c f" . archive-done-tasks))
+  :hook
+  (org-mode . (lambda () (setq truncate-lines nil)))
   :config
   (setq org-agenda-files `(,fiery-org-directory))
   (setq org-default-notes-file fiery-org-note-file)
