@@ -4,7 +4,7 @@
 (use-package counsel
   :diminish ivy-mode counsel-mode
   :bind
-  (("\C-s" . swiper)
+  (("\C-s" . swiper-isearch-thing-at-point)
    ("M-x" . counsel-M-x)
    ("C-x C-f" . counsel-find-file))
   :hook
