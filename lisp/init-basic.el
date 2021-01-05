@@ -1,5 +1,11 @@
 ;;; init-basic.el --- -*- lexical-binding: t -*-
 
+;; tempbuf
+(require 'tempbuf)
+(add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
+(add-hook 'custom-mode-hook 'turn-on-tempbuf-mode)
+(add-hook 'view-mode-hook 'turn-on-tempbuf-mode)
+(add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
 ;; ivy - counsel - swiper
 (use-package counsel
   :diminish ivy-mode counsel-mode
