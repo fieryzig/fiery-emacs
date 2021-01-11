@@ -20,11 +20,10 @@
   (quickrun-add-command
    "c++/c1z"
    '((:command . "g++")
-     (:exec . ("%c -std=c++1z %o -o %e %s"
+     (:exec . ("%c -std=c++1z -Wall %o -o %e %s"
                "%e %a"))
      (:remove . ("%e")))
    :default "c++")
-  (setq quickrun-focus-p nil)
   :bind
   ("C-c r" . quickrun-shell))
 
