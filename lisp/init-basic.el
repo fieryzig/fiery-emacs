@@ -7,43 +7,18 @@
 (add-hook 'view-mode-hook 'turn-on-tempbuf-mode)
 (add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
 ;; ivy - counsel - swiper
-(use-package counsel
-  :diminish ivy-mode counsel-mode
-  :bind
-  (("\C-s" . swiper-isearch-thing-at-point)
-   ("M-x" . counsel-M-x)
-   ("C-x C-f" . counsel-find-file))
-  :hook
-  ((after-init . ivy-mode)(ivy-mode . counsel-mode))
-  :custom
-  (search-default-mode #'char-fold-to-regexp)
-  (enable-recursive-minibuffers t)
-  (ivy-use-virtual-buffers t)
-  (ivy-use-selectable-prompt t)
-  (ivy-height 10)
-  (ivy-fixed-height-minibuffer t)
-  (ivy-on-del-error-function nil)
-  (ivy-count-format "[%d/%d]")
-  (ivy-initial-inputs-alist nil)
-  :init
-  (with-no-warnings
-    (defun my-ivy-format-function-arrow(cands)
-      "Transform CANDS into a string for minibuffer."
-      (ivy--format-function-generic
-       (lambda (str)
-	 (concat (if (display-graphic-p)
-		     (all-the-icons-octicon
-		      "chevron-right"
-		      :height 0.8 :v-adjust -0.05)
-		   ">")
-		 (propertize " " 'display `(space :align-to 2))
-		 (ivy--add-face str 'ivy-current-match)))
-       (lambda (str)
-	 (concat (propertize " " 'display `(space :align-to 2)) str))
-       cands
-       "\n"))
-    (setq ivy-format-functions-alist '((counsel-describe-face . counsel--faces-format-function)
-				       (t . my-ivy-format-function-arrow)))))
+(update-to-load-path (expand-file-name "elpa/swiper-0.13.0" user-emacs-directory))
+(require 'ivy)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+(require 'swiper)
+(global-set-key (kbd "C-s") 'swiper-isearch-thing-at-point)
+(global-set-key (kbd "C-r") 'swiper-isearch)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
+
 
 ;; crux
 (use-package crux
