@@ -24,6 +24,21 @@
   :group 'fiery
   :type 'string)
 
+(defcustom fiery-blog-title "Fieryzig's Blog"
+  "blog name"
+  :group 'fiery
+  :type 'string)
+
+(defcustom fiery-blog-url "https://fieryzig.github.io"
+  "blog url"
+  :group 'fiery
+  :type 'string)
+
+(defcustom fiery-blog-directory "~/fiery-blog/"
+  "blog local directory"
+  :group 'fiery
+  :type 'string)
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 (provide 'init-const)
