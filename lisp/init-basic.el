@@ -6,19 +6,22 @@
 (add-hook 'custom-mode-hook 'turn-on-tempbuf-mode)
 (add-hook 'view-mode-hook 'turn-on-tempbuf-mode)
 (add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
-;; ivy - counsel - swiper
-(update-to-load-path (expand-file-name "elpa/swiper-0.13.0" user-emacs-directory))
-(require 'ivy)
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq ivy-count-format "(%d/%d) ")
-(require 'swiper)
-(global-set-key (kbd "C-s") 'swiper-isearch-thing-at-point)
-(global-set-key (kbd "C-r") 'swiper-isearch)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "M-y") 'counsel-yank-pop)
 
+;; ivy - counsel - swiper
+(use-package ivy
+  :diminish ivy-mode counsel-mode
+  :hook
+  (after-init . ivy-mode)
+  :custom
+  (ivy-use-virtual-buffers t)
+  (ivy-count-format "(%d/%d) "))
+(use-package swiper
+  :bind
+  (("C-s" . swiper-isearch-thing-at-point)
+   ("C-r" . swiper-isearch)
+   ("M-x" . counsel-M-x)
+   ("C-x C-f" . counsel-find-file)
+   ("M-y" . counsel-yank-pop)))
 
 ;; crux
 (use-package crux
