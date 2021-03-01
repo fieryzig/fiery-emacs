@@ -2,7 +2,7 @@
 
 (cond ((version< emacs-version "26.1")
        (warn "Emacs 26.1 or above is required!")))
-
+(set-language-environment "UTF-8")
 ;; LoadPath
 (defun update-to-load-path (folder)
   "Update FOLDER and its subdirectories to `load-path'."
@@ -31,8 +31,9 @@
 (require 'init-cpp)
 (require 'init-markdown)
 
-;; Org
+;; Org & Blog
 (require 'init-org)
+(require 'init-blog)
 ;; Misc
 
 ;; Custom
