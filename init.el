@@ -34,6 +34,6 @@
 ;; Org & Blog
 (require 'init-org)
 (require 'init-blog)
-;; Misc
 
-;; Custom
+;; Misc
+(require 'init-utils)
