@@ -68,7 +68,7 @@
         `(;; row 1
           ((,(all-the-icons-material "settings" :height 1.1 :v-adjust 0.0)
             "Settings"
-            "Edit init.el"
+            "Customize fiery-emacs"
             (lambda (&rest _) (customize-group-other-window 'fiery)))
            )))
   (setq dashboard-footer-messages
