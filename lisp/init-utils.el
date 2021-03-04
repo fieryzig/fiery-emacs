@@ -8,6 +8,7 @@
 (defun dashboard-and-kill-buffers()
   (interactive)
   (dashboard-refresh-buffer)
+  (delete-other-windows)
   (kill-other-buffers))
 
 (define-prefix-command 'fiery-map)
