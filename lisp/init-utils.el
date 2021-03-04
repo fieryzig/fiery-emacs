@@ -5,7 +5,7 @@
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
-(defun show-dashboard-and-kill-buffers()
+(defun dashboard-and-kill-buffers()
   (interactive)
   (dashboard-refresh-buffer)
   (kill-other-buffers))
