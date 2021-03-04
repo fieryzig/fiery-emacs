@@ -1,6 +1,9 @@
 ;;; init-blog.el --- -*- lexical-binding: t -*-
 
 (use-package org-static-blog
+  :bind
+  ("C-c b n" . org-static-blog-create-new-post)
+  ("C-c b p" . org-static-blog-publish)
   :custom
   (org-static-blog-publish-title fiery-blog-title)
   (org-static-blog-publish-url fiery-blog-url)
