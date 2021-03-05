@@ -22,15 +22,15 @@
 <meta name=\"referrer\" content=\"no-referrer\">
 <link href=\"static/style.css\" rel=\"stylesheet\" type=\"text/css\" />
 ")
-  (org-static-blog-page-preamble
+  (org-static-blog-page-preamble (concat
    "<div class=\"header\">
-<h1><a href=\"https://fieryzig.github.io\" class=\"title\">fieryzig</a></h1>
+<h1><a href=\"https://fieryzig.github.io\" class=\"title\">" fiery-blog-title "</a></h1>
 <p class=\"text-muted\">fieryzig's blog</p>
 <ul class=\"list-inline\">
 <li class=\"list-inline-item\"><a href=\"https://fieryzig.github.io/about.html\">About</a></li>
 <li class=\"list-inline-item\"><a href=\"https://fieryzig.github.io/tags.html\">Tags</a></li>
 </ul>
-</div>")
+</div>"))
   (org-static-blog-page-postamble ""))
 
 
