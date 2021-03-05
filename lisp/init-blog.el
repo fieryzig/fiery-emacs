@@ -12,6 +12,9 @@
   (org-static-blog-drafts-directory (concat fiery-blog-directory "drafts/"))
   (org-static-blog-enable-tags t)
   (org-static-blog-use-preview t)
+  (org-static-blog-preview-ellipsis
+   "<p>......</p>")
+  (org-static-blog-preview-link-p t)
   (org-export-with-toc nil)
   (org-export-with-section-numbers nil)
   (org-static-blog-page-header
@@ -21,10 +24,11 @@
 ")
   (org-static-blog-page-preamble
    "<div class=\"header\">
-<h1 class=\"title\"><a href=\"https://fieryzig.github.io\">fieryzig</a></h1>
+<h1><a href=\"https://fieryzig.github.io\" class=\"title\">fieryzig</a></h1>
 <p class=\"text-muted\">fieryzig's blog</p>
 <ul class=\"list-inline\">
-<li class=\"list-inline-item\"><a href=\"https://fieryzig.github.io\">About</a></li>
+<li class=\"list-inline-item\"><a href=\"https://fieryzig.github.io/about.html\">About</a></li>
+<li class=\"list-inline-item\"><a href=\"https://fieryzig.github.io/tags.html\">Tags</a></li>
 </ul>
 </div>")
   (org-static-blog-page-postamble ""))
