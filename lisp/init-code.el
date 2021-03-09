@@ -147,5 +147,7 @@
         ((eq electric-indent-mode nil) (electric-indent-mode 1))))
 (add-hook 'post-command-hook #'smart-electric-indent-mode)
 
+(add-hook 'prog-mode 'show-paren-mode)
+
 (update-to-load-path (expand-file-name "lisp/code" user-emacs-directory))
 (provide 'init-code)
