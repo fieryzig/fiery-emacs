@@ -15,6 +15,7 @@
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-count-format "(%d/%d) "))
+(use-package counsel)
 (use-package swiper
   :bind
   (("C-s" . swiper-isearch-thing-at-point)
@@ -41,9 +42,11 @@
   :diminish
   :hook (after-init . which-key-mode))
 
-(use-package windmove
-  :ensure nil
-  :hook (after-init . windmove-default-keybindings))
+(use-package ace-window
+  :bind
+  (("C-x o" . ace-window))
+  :custom
+  (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (use-package doom-modeline
   :ensure t
