@@ -3,7 +3,9 @@
 (defun kill-other-buffers()
   "Kill other buffer"
   (interactive)
-  (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+  (mapc 'kill-buffer (seq-difference (buffer-list)
+                                     (list (current-buffer)
+                                          (get-buffer "*scratch*")))))
 
 (defun dashboard-and-kill-buffers()
   (interactive)
