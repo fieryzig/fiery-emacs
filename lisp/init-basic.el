@@ -73,6 +73,10 @@
             "Settings"
             "Customize fiery-emacs"
             (lambda (&rest _) (customize-group-other-window 'fiery)))
+           (,(all-the-icons-material "control_point" :height 1.1 :v-adjust 0.0)
+            "Blogging"
+            "Blog new post"
+            (lambda (&rest _) (org-static-blog-create-new-post)))
            )))
   (setq dashboard-footer-messages
         '("fiery-emacs")))
