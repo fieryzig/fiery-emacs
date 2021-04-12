@@ -13,7 +13,7 @@
   (expand-file-name "journal.org" fiery-org-directory))
 
 (defconst fiery-archive-file
-  (expand-file-name "archive.org" fiery-org-directory))
+  (expand-file-name "archive.org::" fiery-org-directory))
 
 (use-package org
   :ensure nil
