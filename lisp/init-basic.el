@@ -6,6 +6,9 @@
 (add-hook 'custom-mode-hook 'turn-on-tempbuf-mode)
 (add-hook 'view-mode-hook 'turn-on-tempbuf-mode)
 
+;; undo-tree
+(use-package undo-tree)
+
 ;; ivy - counsel - swiper
 (use-package ivy
   :diminish ivy-mode counsel-mode
