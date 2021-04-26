@@ -5,7 +5,6 @@
 (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
 (add-hook 'custom-mode-hook 'turn-on-tempbuf-mode)
 (add-hook 'view-mode-hook 'turn-on-tempbuf-mode)
-(add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
 
 ;; ivy - counsel - swiper
 (use-package ivy
