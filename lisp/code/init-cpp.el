@@ -1,7 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 
 (use-package cc-mode
-  :ensure nil
   :bind
   (:map c-mode-base-map
         ("C-c c" . compile))
@@ -19,5 +18,8 @@
   (c-mode-common . (lambda ()
                      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                        (ggtags-mode 1)))))
+
+(use-package cmake-mode
+  :ensure nil)
 
 (provide 'init-cpp)
