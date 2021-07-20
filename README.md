@@ -14,5 +14,5 @@ powershell.exe ./scripts/font_install.ps1 ./fonts
 ```
 - Clone .emacs.d
 ```bash
-git clone https://github.com/ut-labs/fiery-emacs.git ~/.emacs.d
+git clone https://github.com/fieryzig/fiery-emacs.git ~/.emacs.d
 ```
