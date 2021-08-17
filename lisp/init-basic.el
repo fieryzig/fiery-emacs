@@ -109,4 +109,11 @@
   (ibuffer-mode .(lambda ()
                    (ibuffer-vc-set-filter-groups-by-vc-root))))
 
+;; undo-tree
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode)
+  (setq-default undo-tree-visualizer-timestamps t))
+
 (provide 'init-basic)
