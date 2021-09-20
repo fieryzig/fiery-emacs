@@ -2,17 +2,30 @@
 
 ;; Completion
 (use-package company
-  :diminish company-mode
+  :diminish
+  :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :init
-  (setq company-tooltip-limit 8)
-  (setq company-idle-delay .3)
-  (setq company-echo-delay 0)
-  (setq company-begin-commands '(self-insert-command))
+  (setq company-tooltip-align-annotations t
+        company-tooltip-limit 12
+        company-idle-delay 0
+        company-echo-delay (if (display-graphic-p) nil 0)
+        company-minimum-prefix-length 1
+        company-require-match nil
+        company-dabbrev-ignore-case nil
+        company-dabbrev-downcase nil
+        company-global-modes '(not message-mode help-mode eshell-mode shell-mode)
+        company-backends '((company-capf)
+                           (company-dabbrev-code company-keywords company-files)
+                           company-dabbrev))
   :bind
   ((:map company-active-map
          ("C-n" . company-select-next-or-abort)
          ("C-p" . company-select-previous-or-abort)))
-  :hook (prog-mode . company-mode))
+  :hook (after-init . global-company-mode))
+
+(use-package company-prescient
+  :init
+  (company-prescient-mode 1))
 
 ;; quickrun
 (use-package quickrun
@@ -30,16 +43,19 @@
 ;; LSP
 ;; No! I don't use lsp
 (use-package citre
+  :bind
+  (("C-x c j" . citre-jump)
+   ("C-x c k" . citre-jump-back)
+   ("C-x c p" . citre-peek)
+   ("C-x c a" . citre-ace-peek)
+   ("C-x c u" . citre-update-this-tags-file))
   :init
   (require 'citre-config)
-  (global-set-key (kbd "C-x c j") 'citre-jump)
-  (global-set-key (kbd "C-x c k") 'citre-jump-back)
-  (global-set-key (kbd "C-x c p") 'citre-ace-peek)
-  (global-set-key (kbd "C-x c u") 'citre-update-this-tags-file)
+  (setq citre-auto-enable-citre-mode-modes '(prog-mode))
   :config
-  (setq
-   citre-default-create-tags-file-location 'global-cache
-   citre-prompt-language-for-ctags-command t))
+  (with-no-warnings
+    (with-eval-after-load 'projectile
+      (setq citre-project-root-function #'projectile-project-root))))
 
 ;; Project
 (use-package magit
