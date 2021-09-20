@@ -89,7 +89,7 @@
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
   (setq doom-themes-enable-bold t
 	doom-themes-enable-italic t)
-  (load-theme 'doom-one t)
+  (load-theme 'doom-monokai-pro t)
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
