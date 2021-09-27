@@ -13,7 +13,8 @@ apps are not started from a shell."
 						    ))))
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
-(set-exec-path-from-shell-PATH)
+(if (eq system-type 'darwin)
+    (set-exec-path-from-shell-PATH))
 
 ;; basic config
 (save-place-mode 1)
