@@ -14,7 +14,7 @@
         company-dabbrev-ignore-case nil
         company-dabbrev-downcase nil
         company-global-modes '(not message-mode help-mode eshell-mode shell-mode)
-        company-backends '((company-capf)
+        company-backends '((company-capf company-dabbrev-code company-keywords)
                            (company-dabbrev-code company-keywords company-files)
                            company-dabbrev))
   :bind
