@@ -1,5 +1,4 @@
-straight/build-*
-straight/build/
+straight/
 *.bak
 *.data
 *.elc
