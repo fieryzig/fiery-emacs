@@ -1,1 +1,0 @@
-c:/Users/duo07/AppData/Roaming/.emacs.d/straight/repos/straight.el/straight-x.el
