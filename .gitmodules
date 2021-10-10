@@ -1,0 +1,23 @@
+[submodule "bespoke-themes"]
+    path = straight/repos/bespoke-themes
+    url = https://github.com/mclear-tools/bespoke-themes.git
+
+[submodule "el-get"]
+    path = straight/repos/el-get
+    url =  https://github.com/dimitri/el-get.git
+
+[submodule "emacsmirror-mirror"]
+    path = straight/repos/emacsmirror-mirror
+    url = https://github.com/emacs-straight/emacsmirror-mirror.git
+
+[submodule "gnu-elpa-mirror"]
+    path = straight/repos/gnu-elpa-mirror
+    url = https://github.com/emacs-straight/gnu-elpa-mirror.git
+
+[submodule "melpa"]
+    path = straight/repos/melpa
+    url = https://github.com/melpa/melpa.git
+
+[submodule "straight.el"]
+    path = straight/repos/straight.el
+    url = https://github.com/raxod502/straight.el.git
