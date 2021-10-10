@@ -83,19 +83,30 @@
   (setq dashboard-footer-messages
         '("fiery-emacs")))
 
-(use-package doom-themes
-  :ensure t
+(use-package bespoke-themes
+  :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "main")
   :config
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-  (setq doom-themes-enable-bold t
-	doom-themes-enable-italic t)
-  (load-theme 'doom-monokai-pro t)
-
-  (doom-themes-visual-bell-config)
-  (doom-themes-neotree-config)
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config)
-  (doom-themes-org-config))
+  ;; Set header line
+  (setq bespoke-set-mode-line 'footer)
+  ;; Set mode line height
+  (setq bespoke-set-mode-line-size 3)
+  ;; Show diff lines in modeline
+  (setq bespoke-set-git-diff-mode-line t)
+  ;; Set mode-line cleaner
+  (setq bespoke-set-mode-line-cleaner t)
+  ;; Set evil cursor colors
+  (setq bespoke-set-evil-cursors nil)
+  ;; Use mode line visual bell
+  (setq bespoke-set-visual-bell t)
+  ;; Set use of italics
+  (setq bespoke-set-italic-comments t
+        bespoke-set-italic-keywords t)
+  ;; Set variable pitch
+  (setq bespoke-set-variable-pitch t)
+  ;; Set initial theme variant
+  (setq bespoke-set-theme 'light)
+  ;; Load theme
+  (load-theme 'bespoke t))
 
 ;; buffer
 (use-package ibuffer
