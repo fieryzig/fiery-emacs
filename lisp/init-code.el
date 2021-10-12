@@ -27,6 +27,10 @@
   :init
   (company-prescient-mode 1))
 
+(use-package rg
+  :init
+  (rg-enable-default-bindings))
+
 ;; quickrun
 (use-package quickrun
   :init
