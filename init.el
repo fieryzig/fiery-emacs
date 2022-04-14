@@ -24,6 +24,7 @@
 (require 'init-const)
 (require 'init-env)
 (require 'init-basic)
+(require 'init-ui)
 
 ;; Code
 (require 'init-code)

@@ -50,10 +50,6 @@
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
-(use-package doom-modeline
-  :ensure t
-  :hook (after-init . doom-modeline-mode))
-
 (use-package dashboard
   :ensure t
   :config
@@ -82,31 +78,6 @@
            )))
   (setq dashboard-footer-messages
         '("fiery-emacs")))
-
-(use-package bespoke-themes
-  :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "main")
-  :config
-  ;; Set header line
-  (setq bespoke-set-mode-line 'footer)
-  ;; Set mode line height
-  (setq bespoke-set-mode-line-size 3)
-  ;; Show diff lines in modeline
-  (setq bespoke-set-git-diff-mode-line t)
-  ;; Set mode-line cleaner
-  (setq bespoke-set-mode-line-cleaner t)
-  ;; Set evil cursor colors
-  (setq bespoke-set-evil-cursors nil)
-  ;; Use mode line visual bell
-  (setq bespoke-set-visual-bell t)
-  ;; Set use of italics
-  (setq bespoke-set-italic-comments t
-        bespoke-set-italic-keywords t)
-  ;; Set variable pitch
-  (setq bespoke-set-variable-pitch t)
-  ;; Set initial theme variant
-  (setq bespoke-set-theme 'light)
-  ;; Load theme
-  (load-theme 'bespoke t))
 
 ;; buffer
 (use-package ibuffer
