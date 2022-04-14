@@ -29,9 +29,11 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; use-package
+(setq load-prefer-newer t)
 (setq package-archives
       '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-	("melpa" . "http://elpa.emacs-china.org/melpa/")))
+	    ("melpa" . "http://elpa.emacs-china.org/melpa/")
+        ("stable-melpa" . "http://elpa.zilongshanren.com/stable-melpa/")))
 ;; (unless (bound-and-true-p package--initialized)
 ;;   (setq package-enable-at-startup nil)
 ;;   (package-initialize))
@@ -47,18 +49,7 @@
 
 ;; font & icons
 (use-package all-the-icons)
-(use-package cnfonts
-  :after all-the-icons
-  :hook (cnfonts-set-font-finish
-	 . (lambda (fontsizes-list)
-	     (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
-	     (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
-	     (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
-	     (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
-	     (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
-	     (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)))
-  :init
-  (cnfonts-enable))
-
+(add-to-list 'default-frame-alist
+             '(font . "FiraCode Nerd Font-12.0"))
 
 (provide 'early-init)
