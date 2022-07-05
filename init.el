@@ -28,8 +28,8 @@
 
 ;; Code
 (require 'init-code)
-(require 'init-python)
 (require 'init-cpp)
+(require 'init-rust)
 (require 'init-markdown)
 
 ;; Org & Blog

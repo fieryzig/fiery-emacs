@@ -31,9 +31,9 @@
 ;; use-package
 (setq load-prefer-newer t)
 (setq package-archives
-      '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-	    ("melpa" . "http://elpa.emacs-china.org/melpa/")
-        ("stable-melpa" . "http://elpa.zilongshanren.com/stable-melpa/")))
+      '(("gnu"   . "http://1.15.88.122/gnu/")
+	    ("melpa" . "http://1.15.88.122/melpa/")
+        ("stable-melpa" . "http://1.15.88.122/stable-melpa/")))
 ;; (unless (bound-and-true-p package--initialized)
 ;;   (setq package-enable-at-startup nil)
 ;;   (package-initialize))
