@@ -1,5 +1,8 @@
 ;;; init-code.el --- -*- lexical-binding: t -*-
 
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 (use-package rg
   :init
   (rg-enable-default-bindings))
@@ -58,7 +61,7 @@
 ;; Corfu
 (use-package corfu
   ;; Optional customizations
-  ;; :custom
+  :custom
   (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
   ;; (corfu-separator ?\s)          ;; Orderless field separator
@@ -79,6 +82,21 @@
   ;; See also `corfu-exclude-modes'.
   :init
   (global-corfu-mode))
+
+(use-package cape
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  ;;(add-to-list 'completion-at-point-functions #'cape-history)
+  (add-to-list 'completion-at-point-functions #'cape-keyword)
+  ;;(add-to-list 'completion-at-point-functions #'cape-tex)
+  ;;(add-to-list 'completion-at-point-functions #'cape-sgml)
+  ;;(add-to-list 'completion-at-point-functions #'cape-rfc1345)
+  ;;(add-to-list 'completion-at-point-functions #'cape-abbrev)
+  ;;(add-to-list 'completion-at-point-functions #'cape-dict)
+  ;;(add-to-list 'completion-at-point-functions #'cape-symbol)
+  ;;(add-to-list 'completion-at-point-functions #'cape-line)
+  )
 
 ;; A few more useful configurations...
 (use-package emacs
@@ -122,6 +140,13 @@
 
 ;; Languages
 ;; (update-to-load-path (expand-file-name "lisp/code" user-emacs-directory))
+
+(use-package whitespace-mode
+  :ensure nil
+  :diminish whitespace-mode
+  :init
+  (setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark newline-mark missing-newline-at-eof))
+  :hook (prog-mode . whitespace-mode))
 
 (use-package tree-sitter :ensure t)
 (use-package tree-sitter-langs :ensure t)
