@@ -28,13 +28,14 @@
 
 ;; Code
 (require 'init-code)
-(require 'init-cpp)
-(require 'init-rust)
-(require 'init-markdown)
+;; (require 'init-cpp)
+;; (require 'init-rust)
+;; (require 'init-markdown)
 
 ;; Org & Blog
-(require 'init-org)
-(require 'init-blog)
+;; (require 'init-org)
+;; (require 'init-blog)
 
 ;; Misc
 (require 'init-utils)
+(put 'dired-find-alternate-file 'disabled nil)
