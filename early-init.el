@@ -48,8 +48,7 @@
   (setq use-package-enable-imenu-support t))
 
 ;; font & icons
-(use-package all-the-icons)
-(add-to-list 'default-frame-alist
-             '(font . "FiraCode Nerd Font-12.0"))
+(use-package nerd-icons)
+(set-face-attribute 'default nil :family "FiraCode Nerd Font" :height 130)
 
 (provide 'early-init)

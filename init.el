@@ -38,3 +38,4 @@
 
 ;; Misc
 (require 'init-utils)
+(put 'dired-find-alternate-file 'disabled nil)

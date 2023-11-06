@@ -209,35 +209,48 @@
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-display-icons-p t)
-  ;; (setq dashboard-icon-type 'nerd-icons)
-  (setq dashboard-startup-banner 'logo)
-  (setq dashboard-items '((agenda . 5)
-                          (projects . 10)
-			  (recents . 10)))
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-center-content t)
-  (dashboard-modify-heading-icons
-   '((recents . "file-text")
-     (bookmarks . "book")))
-  (setq dashboard-set-navigator t)
-  (setq dashboard-navigator-buttons
-        `(;; row 1
-          ((,(all-the-icons-material "settings" :height 1.1 :v-adjust 0.0)
-            "Settings"
-            "Customize fiery-emacs"
-            (lambda (&rest _) (customize-group-other-window 'fiery)))
-           (,(all-the-icons-material "control_point" :height 1.1 :v-adjust 0.0)
-            "Blogging"
-            "Blog new post"
-            (lambda (&rest _) (org-static-blog-create-new-post)))
-           )))
-  (setq dashboard-footer-messages
-        '("fiery-emacs")))
+    :diminish dashboard-mode
+    :custom-face
+    (dashboard-heading ((t (:inherit (font-lock-string-face bold)))))
+    (dashboard-items-face ((t (:weight normal))))
+    (dashboard-no-items-face ((t (:weight normal))))
+    :init
+    (setq dashboard-startup-banner 'logo
+          ;;dashboard-page-separator "\n\f\n"
+          ;;dashboard-projects-backend 'project-el
+          dashboard-path-style 'truncate-middle
+          dashboard-path-max-length 60
+          dashboard-center-content t
+          dashboard-show-shortcuts nil
+          dashboard-items '((projects  . 10)
+                            (recents . 15)
+                            (agenda . 5))
+
+          dashboard-display-icons-p t
+          dashboard-set-file-icons t
+          dashboard-set-heading-icons t
+          dashboard-heading-icons '((recents   . "nf-oct-history")
+                                    (bookmarks . "nf-oct-bookmark")
+                                    (agenda    . "nf-oct-calendar")
+                                    (projects  . "nf-oct-briefcase")
+                                    (registers . "nf-oct-database"))
+
+          dashboard-set-navigator t
+          dashboard-navigator-buttons `(;;row 1
+                                        ((, (nerd-icons-sucicon "nf-seti-settings" :height 1.1 :v-adjust 0.0) "Settings" "Customize fiery-emacs" (lambda (&rest _) (customize-group-other-window 'fiery)))
+                                         (, (nerd-icons-mdicon "nf-md-note_edit" :height 1.1 :v-adjust 0.0) "Blogging" "Blog new post" (lambda (&rest _) (org-static-blog-create-new-post)))))
+
+          dashboard-set-footer t
+          dashboard-footer-icon (nerd-icons-octicon "nf-oct-heart" :height 1.2 :face 'nerd-icons-lred)
+          dashboard-footer-messages '("fiery-emacs"))
+
+    (dashboard-setup-startup-hook)
+    :config
+    ;; WORKAROUND: no icons are displayed on Windows
+    ;; @see https://github.com/emacs-dashboard/emacs-dashboard/issues/471
+
+    ;; Copy from centaur-emacs, thanks to seagle0128
+    (advice-add #'dashboard-replace-displayable :override #'identity))
 
 ;; buffer
 (use-package ibuffer
